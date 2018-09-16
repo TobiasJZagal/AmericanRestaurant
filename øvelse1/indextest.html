@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+
+
+<body>
+    <style>
+        body {
+            margin: auto;
+        }
+
+        .container {
+
+            display: grid;
+            height: 150vh;
+            grid-template: 150px 2fr 1.5fr 0.5fr/1fr 1fr 1fr;
+
+            background-color: beige;
+        }
+
+
+
+
+
+        .nav {
+            z-index: 1;
+            grid-area: 1/1/1/4;
+            background-color: #5e5eeb;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+        }
+
+        .promo {
+            background-color: #e6e650;
+            grid-area: 3/1/2/4;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 150px;
+
+        }
+
+        .content1 {
+            background-color: #dd4c4c;
+            grid-area: 3/1/3/1;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content2 {
+            background-color: #dd9a4c;
+            grid-area: 3/2/3/2;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content3 {
+            background-color: #ddab4c;
+            grid-area: 3/3/3/3;
+            order: 2;
+            z-index: 2;
+        }
+
+        .footer {
+            z-index: 0;
+            background-color: #403d40;
+            grid-area: 4/1/4/4;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+
+
+        @media only screen and (max-width: 1000px) {
+
+            .container {
+
+            display: grid;
+            height: 150vh;
+            grid-template: 150px 1.5fr 1fr 0.5fr/1fr 1fr 1fr;
+
+            background-color: beige;
+        }
+
+
+
+
+
+        .nav {
+            z-index: 1;
+            grid-area: 1/1/1/4;
+            background-color: #5e5eeb;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+        }
+
+        .promo {
+            background-color: #e6e650;
+            grid-area: 3/1/2/4;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 150px;
+
+        }
+
+        .content1 {
+            background-color: #dd4c4c;
+            grid-area: 3/1/3/1;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content2 {
+            background-color: #dd9a4c;
+            grid-area: 3/2/3/2;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content3 {
+            background-color: #ddab4c;
+            grid-area: 3/3/3/3;
+            order: 2;
+            z-index: 2;
+        }
+
+        .footer {
+            z-index: 0;
+            background-color: #403d40;
+            grid-area: 4/1/4/4;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+
+
+
+        }
+
+
+         @media only screen and (max-width: 700px) {
+
+            .container {
+
+            display: grid;
+            height: 200vh;
+            grid-template: 100px 1.5fr 1.5fr 1.5fr 1.5fr 0.5fr/1fr;
+
+            background-color: beige;
+        }
+
+           .nav {
+            z-index: 1;
+            grid-area: 1/1/1/1;
+            background-color: #5e5eeb;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+               z-index: 3;
+        }
+
+        .promo {
+            background-color: #e6e650;
+            grid-area: -1/1/2/1;
+            order: 2;
+
+
+
+
+        }
+
+        .content1 {
+            background-color: #dd4c4c;
+            grid-area: 3/1/3/1;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content2 {
+            background-color: #dd9a4c;
+            grid-area: 4/1/4/1;
+            order: 2;
+            z-index: 2;
+        }
+
+        .content3 {
+            background-color: #ddab4c;
+            grid-area: 5/1/5/1;
+            order: 2;
+            z-index: 2;
+        }
+
+        .footer {
+            z-index: 0;
+            background-color: #403d40;
+            grid-area: 6/1/6/1;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        }
+
+       .nav{
+             display: grid;
+
+            grid-template: 1fr/ 200px 1fr 200px;
+             }
+
+        .nav h1{
+
+            grid-area: 1/3/1/3;
+            color: aquamarine;
+        }
+
+    </style>
+
+    <div class="container">
+
+
+        <div class="nav">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+        <div class="promo">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+        <div class="footer">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+        <div class="content1">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+        <div class="content2">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+        <div class="content3">
+            <h1>overskrift</h1>
+            <p>tekst</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
