@@ -10,8 +10,8 @@
 
 <body>
     <style>
-
-        :root:{ font-size: 62.5%;
+        :root:{
+            font-size: 62.5%;
 
         }
 
@@ -19,22 +19,84 @@
             margin: auto;
         }
 
-         .data-container {
+        .modal-grid{
+
+            display: grid;
+
+        }
+
+        #modal {
+
+            text-align: center;
+            width: 100vw;
+            height: 100%;
+            background: rgba(0, 0, 0, .8);
+
+            position: fixed;
+
+            transition: all 1s;
+            opacity: 0;
+            pointer-events: none;
+
+        }
+
+        #modal h2 {
+            text-align: center;
+        }
+
+        #modal p {
+            text-align: left;
+
+        }
+
+        #modal .alignText {
+            height: 2em;
+
+
+        }
+
+        #modal-content {
+            width: 30vw;
+            height:70vh;
+
+            background: #fff;
+            grid-area: 1/2/1/2;
+
+            margin-top: 3em;
+
+
+        }
+
+        #modal.vis {
+
+            opacity: 1;
+            pointer-events: all;
+            transition: all 1s;
+            grid-area: 1/1/1/1;
+        }
+
+        .modal-billede {
+            max-height: 50vh;
+            max-width: 100%;
+        }
+
+
+        .data-container {
 
             display: grid;
 
 
             grid-template-columns: repeat(3, 1fr);
-             grid-gap: 5rem;
-           padding: 1rem;
+            grid-gap: 5rem;
+            padding: 1rem;
 
 
 
 
         }
 
-        .dishes{
-          border-style: solid;
+        .dishes {
+            border-style: solid;
             border-color: aqua;
             padding: 0;
 
@@ -42,11 +104,11 @@
 
         }
 
-         .dishes img{
-          border-style: solid;
+        .dishes img {
+            border-style: solid;
             border-color: aqua;
             padding: 0;
-             width: 100%;
+            width: 100%;
 
 
         }
@@ -134,6 +196,21 @@
 
         @media only screen and (max-width: 1000px) {
 
+
+
+            #modal-content {
+            width: 40vw;
+            height:50vh;
+
+            background: #fff;
+            grid-area: 1/2/1/2;
+            margin-right: 5em;
+
+            margin-top: 3em;
+
+
+        }
+
             .container {
 
                 display: grid;
@@ -143,48 +220,48 @@
                 background-color: beige;
             }
 
-             .data-container {
+            .data-container {
 
-            display: grid;
-
-
-            grid-template-columns: repeat(2, 1fr);
-             grid-gap: 5rem;
-           padding: 1rem;
+                display: grid;
 
 
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 5rem;
+                padding: 1rem;
 
 
-        }
-
-        .dishes{
-          border-style: solid;
-            border-color: aqua;
-            padding: 0;
-
-            max-width: 30rem;
-
-        }
-
-         .dishes img{
-          border-style: solid;
-            border-color: aqua;
-            padding: 0;
-             width: 100%;
 
 
-        }
+            }
 
-        .MenuSorting {
-            background-color: aliceblue;
-            border-radius: 1em;
-            margin: 1rem;
-            height: 20rem;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 180px;
+            .dishes {
+                border-style: solid;
+                border-color: aqua;
+                padding: 0;
 
-        }
+                max-width: 30rem;
+
+            }
+
+            .dishes img {
+                border-style: solid;
+                border-color: aqua;
+                padding: 0;
+                width: 100%;
+
+
+            }
+
+            .MenuSorting {
+                background-color: aliceblue;
+                border-radius: 1em;
+                margin: 1rem;
+                height: 20rem;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 180px;
+
+            }
 
 
 
@@ -257,7 +334,7 @@
                 visibility: visible;
                 background-color: aliceblue;
                 border-radius: 1em;
-               height: auto;
+                height: auto;
                 padding: 1rem;
                 margin: 1rem;
 
@@ -340,6 +417,8 @@
         }
     </style>
 
+
+
     <div class="container">
 
 
@@ -349,7 +428,20 @@
         </div>
 
         <div class="promo">
-             <h1>overskrift</h1>
+
+                <div class="modal-grid"  id="modal">
+                    <div id="modal-content">
+                        <button class="alignText modal-button">Luk</button>
+                        <h2 class="modal-navn"></h2>
+                        <div class="modal-billede"></div>
+                        <p class="modal-text"></p>
+                        <p class="modal-oprindelse"></p>
+                        <p class="modal-pris"></p>
+
+
+                </div>
+            </div>
+            <h1>overskrift</h1>
             <p>tekst</p>
 
             <main class="containerMenu">
@@ -393,8 +485,7 @@
     </template>
 
     <script>
-
-         let dest = document.querySelector(".data-container");
+        let dest = document.querySelector(".data-container");
         let retter;
         let Filter = "alle";
         document.addEventListener("DOMContentLoaded", hentJson);
@@ -433,9 +524,18 @@
                     klon.querySelector(".data-kortInfo").textContent = valgtRet.kortbeskrivelse;
                     klon.querySelector(".data-pris").textContent = "Pris: " + valgtRet.pris;
 
-                    klon.querySelector(".dishes").addEventListener("click", ()=>{
-                        visModal(valgtRet);
-                    })
+
+
+
+                    klon.querySelector("img").addEventListener("click", ()=>{
+
+
+                       window.location.href = "singleView.html?id=" + valgtRet.id;
+                    });
+
+        //            klon.querySelector(".dishes").addEventListener("click", () => {
+        //                visModal(valgtRet);
+        //            })
 
 
 
@@ -447,6 +547,29 @@
 
         };
 
+        function visModal(retten) {
+            document.querySelector("#modal").classList.add("vis");
+            document.querySelector(".modal-navn").textContent = retten.navn;
+            document.querySelector(".modal-billede").innerHTML = '<img src="imgs/large/' + retten.billede + '.jpg" class="modal-billede" alt="' + retten.billede + '">';
+            document.querySelector(".modal-button").addEventListener("click", skjulModal);
+            document.querySelector(".modal-text").textContent = retten.langbeskrivelse;
+
+            if (retten.oprindelsesregion) {
+                document.querySelector(".modal-oprindelse").textContent = "Oprindelsesregion: " + retten.oprindelsesregion;
+            } else {
+                document.querySelector(".modal-oprindelse").textContent = ""
+            }
+            document.querySelector(".modal-pris").textContent = "Pris: " + retten.pris;
+
+
+
+
+        }
+
+        function skjulModal() {
+            document.querySelector("#modal").classList.remove("vis");
+
+        }
     </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
         .nav {
             z-index: 1;
             grid-area: 1/1/1/4;
-            background-color: #5e5eeb;
+            background-color: #FFFFFF;
             position: -webkit-sticky;
             position: sticky;
             top: 0;
@@ -38,7 +38,12 @@
         }
 
         .promo {
-            background-color: #e6e650;
+
+            background: linear-gradient(transparent  0,rgba(0, 0, 0, 0.75) ), url(PromoPicture.png);
+            background-position:1px 0px;
+            background-size: 100%;
+            background-position: center;
+            transition: all 1.8s;
             grid-area: 3/1/2/4;
             order: 2;
             position: -webkit-sticky;
@@ -107,6 +112,9 @@
         }
 
         .promo {
+            background: linear-gradient(transparent  0,rgba(0, 0, 0, 0.75) ), url(PromoPicture.png);
+            background-position:-160px 0px;
+            background-size: 80em;
             background-color: #e6e650;
             grid-area: 3/1/2/4;
             order: 2;
