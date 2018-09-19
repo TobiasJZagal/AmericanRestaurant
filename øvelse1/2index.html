@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Css Grid</title>
+    <link src="Main.css" rel="stylesheet" type="text/css">
+
+    <style>
+
+
+
+        .container {
+            display: grid;
+            height: 200vh;
+            grid-template: 0.5fr 1fr 2fr 3fr/50px 60px 1fr 60px 50px;
+            grid-gap: 5px;
+            background-color: beige;
+        }
+
+        .container2 {
+            display: grid;
+            height: 50vh;
+            grid-template: repeat(2, 1fr)/ repeat(4, 1fr);
+            grid-gap: 5px;
+            background-color: beige;
+        }
+
+        .item {
+            background-color: rgba(20, 40, 80, 1);
+            color: #fff;
+            padding: 10px;
+
+        }
+
+        .item-a {
+            z-index: 1;
+            grid-area: 2/1/2/6;
+            background-color: #5e5eeb;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+        }
+
+        .item-b {
+            background-color: #e6e650;
+            grid-area: 3/1/3/3;
+            order: 2;
+        }
+
+        .item-c {
+            background-color: #dd4c4c;
+            grid-area: 3/4/3/6;
+            order: 2;
+        }
+
+        .item-d {
+            background-color: #4cdd68;
+            grid-area: 4/1/4/6;
+            order: 2;
+        }
+
+        .item-e {
+            z-index: 0;
+            background-color: #de66e3;
+            grid-area: 1/1/1/6;
+            order: 2;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="item item-e">menu</div>
+        <div class="item item-a">header</div>
+        <div class="item item-b">Main</div>
+        <div class="item item-c">Sidebar</div>
+        <div class="item item-d">Footer
+
+        </div>
+    </div>
+</body>
+</html>

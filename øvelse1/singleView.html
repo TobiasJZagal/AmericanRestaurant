@@ -219,8 +219,14 @@
         </div>
 
         <div class="promo">
-            <h1>overskrift</h1>
-            <p>tekst</p>
+             <main class="containerMenu">
+                <section class="data-container">
+
+                </section>
+
+
+            </main>
+
         </div>
 
         <div class="footer">
@@ -232,7 +238,80 @@
 
     </div>
 
+    <template class="data-template">
+        <article class="dishes">
+            <div class="data-billede"></div>
+            <p class="data-kategori"></p>
+            <h2 class="data-navn"></h2>
+            <p class="data-kortInfo"></p>
+            <p class="data-pris"></p>
+        </article>
+    </template>
+<script>
+         let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
 
+
+        let dest = document.querySelector(".data-container");
+
+
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+
+
+
+
+
+        async function hentJson() {
+            let myJson = await fetch("personliste.json");
+            visRetten = await myJson.json();
+
+            visRet();
+
+
+        }
+
+        function visRet() {
+            let dest = document.querySelector(".data-container");
+            //løb personlisten igennem og lav en klon
+            visRetten.forEach(Ret => {
+                if (Ret.navn == id) {
+
+
+                    //indsæt data i klonen
+                    document.querySelector("#modal").classList.add("vis");
+                    document.querySelector(".modal-navn").textContent = retten.navn;
+                    document.querySelector(".modal-billede").innerHTML = '<img src="imgs/large/' + retten.billede + '.jpg" class="modal-billede" alt="' + retten.billede + '">';
+                    document.querySelector(".modal-button").addEventListener("click", skjulModal);
+                    document.querySelector(".modal-text").textContent = retten.langbeskrivelse;
+
+            if (retten.oprindelsesregion) {
+                document.querySelector(".modal-oprindelse").textContent = "Oprindelsesregion: " + retten.oprindelsesregion;
+            } else {
+                document.querySelector(".modal-oprindelse").textContent = ""
+            }
+            document.querySelector(".modal-pris").textContent = "Pris: " + retten.pris;
+
+
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
 </html>
